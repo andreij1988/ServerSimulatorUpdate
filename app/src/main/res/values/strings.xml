@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Server Simulator</string>
+    <string name="title_activity_add_name">AddName</string>
+    <string name="title_activity_show_name">ShowName</string>
+</resources>
