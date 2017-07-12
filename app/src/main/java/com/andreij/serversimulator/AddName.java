@@ -1,9 +1,7 @@
 package com.andreij.serversimulator;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.MotionEvent;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -15,16 +13,13 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.Calendar;
 
-import static android.R.attr.data;
-import static android.R.attr.name;
-import static android.R.id.input;
-
 public class AddName extends AppCompatActivity {
 
     Spinner sex;
     Spinner day;
     Spinner month;
     Spinner year;
+    Spinner career;
     Button aname;
     String name;
     String dob;
@@ -32,13 +27,14 @@ public class AddName extends AppCompatActivity {
     String sday;
     String smonth;
     String syear;
-    String country;
     String serial;
+    String scareer;
     int check;
     private ArrayList<String> asex;
     private ArrayList<String> aday;
     private ArrayList<String> amonth;
     private ArrayList<String> ayear;
+    private ArrayList<String> acareer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +43,6 @@ public class AddName extends AppCompatActivity {
         Calendar calendar = Calendar.getInstance();
         int cyear = calendar.get(Calendar.YEAR);
         final EditText ename = (EditText) findViewById(R.id.editName);
-        final EditText ecountry = (EditText) findViewById(R.id.editCountry);
         final EditText eserial = (EditText) findViewById(R.id.editSerial);
         final database database = new database();
         day = (Spinner) findViewById(R.id.spinnerDay);
@@ -125,12 +120,30 @@ public class AddName extends AppCompatActivity {
                 // TODO Auto-generated method stub
             }
         });
+        career = (Spinner) findViewById(R.id.spinnerCareer);
+        acareer = new ArrayList<String>();
+        acareer.add("Any");
+        acareer.add("Manager");
+        acareer.add("Worker");
+        acareer.add("Team Lead");
+        ArrayAdapter<String> dataAdapterC = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,acareer);
+        career.setAdapter(dataAdapterS);
+        career.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
+                scareer = career.getSelectedItem().toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> arg0) {
+                // TODO Auto-generated method stub
+            }
+        });
         aname = (Button) findViewById(R.id.butAdd);
         aname.setOnClickListener(new View.OnClickListener()
         {
             public void onClick(View view) {
                 name = ename.getText().toString();
-                country = ecountry.getText().toString();
                 serial = eserial.getText().toString();
                 if (serial.equals("")) {
                     Toast.makeText(getApplicationContext(), "Input Employee Number", Toast.LENGTH_LONG).show();
@@ -141,18 +154,18 @@ public class AddName extends AppCompatActivity {
                     } else {
                         if (!sday.equals("D") && !smonth.equals("M") && !syear.equals("Y")) {
                             if (!ssex.equals("Any")) {
-                                if (!country.equals("")) {
+                                if (!scareer.equals("Any")) {
                                     check = database.check(serial);
                                     if (check == 0) {
                                         dob = sday + "/" + smonth + "/" + syear;
-                                        database.add(serial, name, dob, ssex, country);
+                                        database.add(serial, name, dob, ssex, scareer);
                                         Toast.makeText(getApplicationContext(), "Name added", Toast.LENGTH_LONG).show();
                                     }
                                     else {
                                         Toast.makeText(getApplicationContext(), "Employee Already exists", Toast.LENGTH_LONG).show();
                                     }
                                 } else {
-                                    Toast.makeText(getApplicationContext(), "Input a country of origin please", Toast.LENGTH_LONG).show();
+                                    Toast.makeText(getApplicationContext(), "Input a career please", Toast.LENGTH_LONG).show();
                                 }
                             } else {
                                 Toast.makeText(getApplicationContext(), "Input gender please", Toast.LENGTH_LONG).show();

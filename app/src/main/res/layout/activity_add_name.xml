@@ -123,25 +123,22 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/textSex"
         android:layout_marginTop="20dp"
-        android:id="@+id/textCountry"
+        android:id="@+id/textCareer"
         android:textStyle="bold"/>
-    <EditText
-        android:gravity="left"
+    <Spinner
+        android:id="@+id/spinnerCareer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="Input Country of Origin"
-        android:textSize="18sp"
-        android:id="@+id/editCountry"
-        android:layout_below="@+id/textSex"
-        android:layout_toRightOf="@+id/textCountry"
-        android:layout_toEndOf="@+id/textCountry"
-        android:layout_marginTop="10dp"/>
+        android:layout_alignTop="@+id/textCareer"
+        android:layout_toEndOf="@+id/spinnerSex"
+        android:layout_toRightOf="@+id/spinnerSex"
+        android:textSize="18sp"/>
     <Button
         android:text="Add Name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/butAdd"
-        android:layout_below="@+id/editCountry"
+        android:layout_below="@+id/textCareer"
         android:layout_marginTop="20dp"/>
 </RelativeLayout>
 </ScrollView>
