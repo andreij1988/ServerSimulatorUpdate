@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.andreij.serversimulator.BasicSearch">
+
+    <Button
+        android:id="@+id/bFEmployee"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/bAdvance"
+        android:layout_centerHorizontal="true" android:layout_marginBottom="11dp"
+        android:text="Find Employee"/>
+    <Button
+        android:id="@+id/bAdvance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="199dp"
+        android:text="Proceed to Advance Search" android:layout_alignParentBottom="true"
+        android:layout_alignLeft="@+id/editENumber" android:layout_alignStart="@+id/editENumber"/>
+    <EditText
+        android:id="@+id/editENumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/bFEmployee" android:layout_centerHorizontal="true"
+        android:layout_marginBottom="25dp" android:ems="10"
+        android:hint="Enter Employee Number" android:inputType="number"/>
+</RelativeLayout>

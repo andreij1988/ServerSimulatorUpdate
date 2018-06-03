@@ -17,7 +17,11 @@
         </activity>
         <activity android:name=".AddName">
         </activity>
-        <activity android:name=".ShowName">
+        <activity android:name=".BasicSearch">
+        </activity>
+        <activity android:name=".Result">
+        </activity>
+        <activity android:name=".remove_basic">
         </activity>
     </application>
 

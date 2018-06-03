@@ -10,15 +10,15 @@ import android.widget.Button;
 public class MainActivity extends AppCompatActivity {
     Intent ianame;
     Button add;
+    database mydb;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        mydb = new database(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         add = (Button) findViewById(R.id.butAdd);
         add.setOnTouchListener(addn);
         ianame = new Intent(this, AddName.class);
-        database database = new database();
-        database.create();
     }
     private View.OnTouchListener addn = new View.OnTouchListener() {
         @Override

@@ -1,5 +1,8 @@
 <resources>
     <string name="app_name">Server Simulator</string>
-    <string name="title_activity_add_name">AddName</string>
-    <string name="title_activity_show_name">ShowName</string>
+    <string name="title_activity_add_name">Add Employee</string>
+    <string name="title_activity_basic_search">Basic Search</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
